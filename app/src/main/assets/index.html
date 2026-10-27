@@ -106,8 +106,27 @@ button{border:0;border-radius:9px;padding:13px 15px;font-size:15px;font-weight:b
 </main>
 
 <script>
-const oku=k=>JSON.parse(localStorage.getItem(k)||"[]");
-const yaz=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+
+const oku = k => {
+  try {
+    if (window.AndroidDepo) {
+      return JSON.parse(window.AndroidDepo.oku(k));
+    }
+  } catch (e) {}
+  return JSON.parse(localStorage.getItem(k) || "[]");
+};
+
+const yaz = (k, v) => {
+  const veri = JSON.stringify(v);
+  try {
+    if (window.AndroidDepo) {
+      window.AndroidDepo.yaz(k, veri);
+      return;
+    }
+  } catch (e) {}
+  localStorage.setItem(k, veri);
+};
+ );
 const val=id=>document.getElementById(id).value.trim();
 const para=n=>Number(n||0).toLocaleString("tr-TR",{style:"currency",currency:"TRY"});
 const guvenli=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
