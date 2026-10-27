@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -5,29 +6,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alman Oto Bakım Servisi</title>
 <style>
-body{font-family:Arial,sans-serif;background:#f2f4f7;margin:0;color:#222}
-header{background:#172b4d;color:white;padding:24px 16px;text-align:center}
-main{padding:18px}
-.card{background:white;border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px #0001}
-h2{margin-top:0}
-button{background:#1769aa;color:white;border:0;padding:12px;border-radius:8px;font-size:16px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#eef2f7;color:#172033}
+header{background:#102542;color:white;padding:24px 18px}
+header h1{margin:0;font-size:25px}
+header p{color:#cbd8e8}
+main{padding:16px;max-width:650px;margin:auto}
+.card{background:white;padding:18px;border-radius:14px;margin-bottom:16px;box-shadow:0 3px 12px #0000000c}
+h2{font-size:19px;margin-top:0}
+input{width:100%;padding:12px;margin:6px 0 12px;border:1px solid #ccd4df;border-radius:8px;font-size:16px}
+button{background:#1264a3;color:white;border:0;border-radius:8px;padding:12px 15px;font-size:15px}
+.item{border-top:1px solid #ddd;padding:12px 0;overflow-wrap:anywhere}
+.total{font-size:23px;font-weight:bold;color:#1264a3}
 </style>
 </head>
 <body>
 <header>
 <h1>Alman Oto Bakım Servisi</h1>
-<p>Aracınız için güvenilir bakım hizmeti</p>
+<p>Araç, müşteri ve servis takip sistemi</p>
 </header>
 <main>
 <div class="card">
-<h2>Servis Hizmetleri</h2>
-<p>Yağ değişimi, periyodik bakım, arıza tespiti ve genel araç kontrolü.</p>
+<h2>🚗 Araç ve Müşteri Kaydı</h2>
+<input id="musteri" placeholder="Müşteri adı soyadı">
+<input id="telefon" placeholder="Telefon numarası">
+<input id="plaka" placeholder="Araç plakası">
+<input id="arac" placeholder="Marka ve model">
+<button onclick="aracEkle()">Araç Kaydet</button>
 </div>
 <div class="card">
-<h2>Randevu</h2>
-<p>Servis randevusu için bizimle iletişime geçin.</p>
-<button onclick="alert('Lütfen servis ile iletişime geçerek randevunuzu oluşturun.')">Randevu bilgisi</button>
+<h2>🛠️ Servis ve Ücret Hesabı</h2>
+<input id="servisPlaka" placeholder="Araç plakası">
+<input id="islem" placeholder="Yapılan bakım veya işlem">
+<input id="parca" type="number" min="0" placeholder="Parça ücreti (TL)">
+<input id="iscilik" type="number" min="0" placeholder="İşçilik ücreti (TL)">
+<p>Toplam ücret: <span class="total" id="toplam">0 TL</span></p>
+<button onclick="hesapla()">Ücreti Hesapla</button>
+<button onclick="servisEkle()">Servis Kaydet</button>
+</div>
+<div class="card">
+<h2>📋 Kayıtlı Araçlar</h2>
+<div id="araclar">Henüz araç kaydı yok.</div>
+</div>
+<div class="card">
+<h2>🧾 Servis Geçmişi</h2>
+<div id="gecmis">Henüz servis kaydı yok.</div>
 </div>
 </main>
+<script>
+const oku=k=>JSON.parse(localStorage.getItem(k)||"[]");
+const yaz=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const val=id=>document.getElementById(id).value.trim();
+const para=n=>Number(n||0).toLocaleString("tr-TR",{style:"currency",currency:"TRY"});
+function hesapla(){let t=Number(val("parca")||0)+Number(val("iscilik")||0);document.getElementById("toplam").textContent=para(t);return t}
+function guvenli(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function aracEkle(){let ad=val("musteri"),plaka=val("plaka"),arac=val("arac");if(!ad||!plaka||!arac){alert("Müşteri adı, plaka ve araç bilgilerini girin.");return}let a=oku("araclar");a.push({ad,telefon:val("telefon"),plaka,arac});yaz("araclar",a);goster();alert("Araç kaydedildi.");}
+function servisEkle(){let plaka=val("servisPlaka"),islem=val("islem");if(!plaka||!islem){alert("Plaka ve işlem girin.");return}let s=oku("servisler");s.push({plaka,islem,parca:Number(val("parca")||0),iscilik:Number(val("iscilik")||0),tarih:new Date().toLocaleDateString("tr-TR")});yaz("servisler",s);goster();alert("Servis kaydedildi.");}
+function goster(){let a=oku("araclar"),s=oku("servisler");document.getElementById("araclar").innerHTML=a.length?a.map(x=>`<div class="item"><b>${guvenli(x.plaka)} — ${guvenli(x.arac)}</b><br>${guvenli(x.ad)}<br>${guvenli(x.telefon)}</div>`).join(""):"Henüz araç kaydı yok.";document.getElementById("gecmis").innerHTML=s.length?s.slice().reverse().map(x=>`<div class="item"><b>${guvenli(x.plaka)}</b><br>${guvenli(x.islem)}<br>${x.tarih}<br>Toplam: ${para(x.parca+x.iscilik)}</div>`).join(""):"Henüz servis kaydı yok."}
+goster();
+</script>
 </body>
 </html>
