@@ -64,6 +64,71 @@ function aracEkle(){let ad=val("musteri"),plaka=val("plaka"),arac=val("arac");if
 function servisEkle(){let plaka=val("servisPlaka"),islem=val("islem");if(!plaka||!islem){alert("Plaka ve işlem girin.");return}let s=oku("servisler");s.push({plaka,islem,parca:Number(val("parca")||0),iscilik:Number(val("iscilik")||0),tarih:new Date().toLocaleDateString("tr-TR")});yaz("servisler",s);goster();alert("Servis kaydedildi.");}
 function goster(){let a=oku("araclar"),s=oku("servisler");document.getElementById("araclar").innerHTML=a.length?a.map(x=>`<div class="item"><b>${guvenli(x.plaka)} — ${guvenli(x.arac)}</b><br>${guvenli(x.ad)}<br>${guvenli(x.telefon)}</div>`).join(""):"Henüz araç kaydı yok.";document.getElementById("gecmis").innerHTML=s.length?s.slice().reverse().map(x=>`<div class="item"><b>${guvenli(x.plaka)}</b><br>${guvenli(x.islem)}<br>${x.tarih}<br>Toplam: ${para(x.parca+x.iscilik)}</div>`).join(""):"Henüz servis kaydı yok."}
 goster();
+  
+function whatsappGonder() {
+  const musteri = document.getElementById("musteri")?.value.trim() || "";
+  const telefon = document.getElementById("telefon")?.value.trim() || "";
+  const plaka = document.getElementById("servisPlaka")?.value.trim()
+    || document.getElementById("plaka")?.value.trim() || "";
+  const islem = document.getElementById("islem")?.value.trim() || "";
+  const parca = Number(document.getElementById("parca")?.value || 0);
+  const iscilik = Number(document.getElementById("iscilik")?.value || 0);
+
+  if (!telefon) {
+    alert("Önce müşterinin telefon numarasını girin.");
+    return;
+  }
+
+  let numara = telefon.replace(/\D/g, "");
+  if (numara.startsWith("0")) numara = "90" + numara.substring(1);
+  else if (numara.startsWith("5") && numara.length === 10) numara = "90" + numara;
+
+  const mesaj = "Merhaba " + musteri + ",\n" +
+    "Alman Oto Bakım Servisi servis bilgilendirmesi\n" +
+    "Plaka: " + plaka + "\n" +
+    "Yapılan işlem: " + (islem || "Belirtilmedi") + "\n" +
+    "Parça ücreti: " + parca + " TL\n" +
+    "İşçilik ücreti: " + iscilik + " TL\n" +
+    "Toplam: " + (parca + iscilik) + " TL\n\n" +
+    "Bizi tercih ettiğiniz için teşekkür ederiz.";
+  
+function whatsappGonder() {
+  const musteri = document.getElementById("musteri")?.value.trim() || "";
+  const telefon = document.getElementById("telefon")?.value.trim() || "";
+  const plaka = document.getElementById("servisPlaka")?.value.trim()
+    || document.getElementById("plaka")?.value.trim() || "";
+  const islem = document.getElementById("islem")?.value.trim() || "";
+  const parca = Number(document.getElementById("parca")?.value || 0);
+  const iscilik = Number(document.getElementById("iscilik")?.value || 0);
+
+  if (!telefon) {
+    alert("Önce müşterinin telefon numarasını girin.");
+    return;
+  }
+
+  let numara = telefon.replace(/\D/g, "");
+  if (numara.startsWith("0")) numara = "90" + numara.substring(1);
+  else if (numara.startsWith("5") && numara.length === 10) numara = "90" + numara;
+
+  const mesaj = "Merhaba " + musteri + ",\n" +
+    "Alman Oto Bakım Servisi servis bilgilendirmesi\n" +
+    "Plaka: " + plaka + "\n" +
+    "Yapılan işlem: " + (islem || "Belirtilmedi") + "\n" +
+    "Parça ücreti: " + parca + " TL\n" +
+    "İşçilik ücreti: " + iscilik + " TL\n" +
+    "Toplam: " + (parca + iscilik) + " TL\n\n" +
+    "Bizi tercih ettiğiniz için teşekkür ederiz.";
+
+  window.location.href = "https://wa.me/" + numara + "?text=" + encodeURIComponent(mesaj);
+}
+  
 </script>
+  
+<div style="padding:16px;background:#fff;border-radius:12px;margin:12px">
+  <button onclick="whatsappGonder()" style="width:100%;padding:15px;background:#25D366;color:white;border:0;border-radius:10px;font-size:17px;font-weight:bold">
+    WhatsApp'tan Müşteriye Gönder
+  </button>
+</div>
+  
 </body>
 </html>
