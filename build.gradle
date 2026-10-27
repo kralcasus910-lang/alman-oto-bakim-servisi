@@ -1,13 +1,3 @@
-plugins { id 'com.android.application' }
-
-android {
-    namespace 'com.almanoto.servis'
-    compileSdk 35
-    defaultConfig {
-        applicationId 'com.almanoto.servis'
-        minSdk 23
-        targetSdk 28
-        versionCode 1
-        versionName '1.0'
-    }
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
 }
