@@ -21,13 +21,26 @@ public class MainActivity extends Activity {
         public void yaz(String anahtar, String deger) {
             kayitlar.edit().putString(anahtar, deger).apply();
         }
+
+        @JavascriptInterface
+        public String getVeri(String anahtar) {
+            return oku(anahtar);
+        }
+
+        @JavascriptInterface
+        public void kaydetVeri(String anahtar, String deger) {
+            yaz(anahtar, deger);
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        kayitlar = getSharedPreferences("AlmanOtoKayitlar", MODE_PRIVATE);
+        kayitlar = getSharedPreferences(
+            "AlmanOtoKayitlar",
+            MODE_PRIVATE
+        );
 
         WebView webView = new WebView(this);
         setContentView(webView);
@@ -38,6 +51,7 @@ public class MainActivity extends Activity {
 
         webView.addJavascriptInterface(new Depo(), "AndroidDepo");
         webView.setWebViewClient(new WebViewClient());
+
         webView.loadUrl("file:///android_asset/index.html");
     }
 }
