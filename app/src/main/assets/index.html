@@ -144,8 +144,8 @@ let customers = [];
 
 function loadData() {
   try {
-    const v = window.AndroidDepo?.getVeri("araclar");
-    const s = window.AndroidDepo?.getVeri("servisler");
+    const v = window.AndroidDepo?.oku("araclar");
+    const s = window.AndroidDepo?.oku("servisler");
     vehicles = v ? JSON.parse(v) : JSON.parse(localStorage.getItem("araclar") || "[]");
     services = s ? JSON.parse(s) : JSON.parse(localStorage.getItem("servisler") || "[]");
     customers = JSON.parse(localStorage.getItem("musteriler") || "[]");
