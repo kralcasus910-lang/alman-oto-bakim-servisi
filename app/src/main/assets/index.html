@@ -6,75 +6,24 @@
 <meta name="theme-color" content="#0b1020">
 <title>Alman Oto Bakım Servisi</title>
 <style>
-:root{--bg:#090d18;--panel:#121a2b;--panel2:#182238;--line:#28344b;--text:#f3f6fc;--muted:#9aa8bd;--red:#ef3340}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at top right,#17233b 0,transparent 34%),var(--bg);color:var(--text);font:15px system-ui,sans-serif;padding-bottom:86px}
+:root{--bg:#090d18;--panel:#121a2b;--panel2:#182238;--line:#28344b;--text:#f3f6fc;--muted:#9aa8bd;--red:#ef3340;--red2:#b91c2c;--green:#34d399;--blue:#60a5fa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#17233b 0,transparent 34%),var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:86px}
 header{padding:22px 18px 16px;background:linear-gradient(135deg,#171f32,#0c1220);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--red),#8d1424);font-size:25px}
-.brand h1{font-size:17px;margin:0}
-.brand p{font-size:12px;color:var(--muted);margin:5px 0 0}
-main{padding:18px;max-width:760px;margin:auto}
-.screen{display:none}.screen.active{display:block}
-.eyebrow{color:#ff737d;font-size:11px;font-weight:800;letter-spacing:1.5px}
-.heading{font-size:25px;margin:5px 0 6px}
-.sub{color:var(--muted);margin:0 0 18px;font-size:13px}
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}
-.stat,.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:17px;padding:15px}
-.stat span{color:var(--muted);font-size:12px}
-.stat strong{display:block;font-size:26px;margin-top:7px}
-.stat .accent{color:#ff646f}
-.section-title{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:22px 0 12px;font-size:16px;font-weight:800}
-.btn{border:0;border-radius:12px;background:var(--red);color:white;padding:12px 15px;font-weight:800;font-size:13px;cursor:pointer}
-.btn.secondary{background:#26334a;color:#e7edf8;border:1px solid #3a4962}
-.btn.danger{background:#401c28;color:#ffb5bc;border:1px solid #71303c}
-.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.quick button{min-height:104px;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:16px;color:var(--text);padding:15px;font:inherit;cursor:pointer}
-.quick b{display:block;font-size:14px;margin:9px 0 3px}
-.quick small{color:var(--muted);font-size:12px}
-.quick .qicon{font-size:23px}
-.list{display:grid;gap:10px}
-.item{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:14px}
-.item-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.item h3{font-size:15px;margin:0 0 5px}
-.item p{margin:3px 0;color:var(--muted);font-size:12px;overflow-wrap:anywhere}
-.plate{display:inline-block;background:#f3f4f6;color:#111827;border-radius:5px;padding:4px 7px;font-size:12px;font-weight:900}
-.tag{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:5px 8px;background:#25334a;color:#cbd5e1}
-.tag.done{background:#123a32;color:#86efac}
-.tag.wait{background:#483519;color:#fcd34d}
-.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-.actions button{padding:8px 10px;font-size:12px}
-.empty{text-align:center;color:var(--muted);padding:28px 15px;border:1px dashed #34415a;border-radius:15px}
-nav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px calc(8px + env(safe-area-inset-bottom));background:#0d1422f5;border-top:1px solid var(--line)}
-nav button{border:0;background:transparent;color:#8190a8;font-size:10px;font-weight:700;padding:5px 0;cursor:pointer}
-nav button span{display:block;font-size:19px;margin-bottom:3px}
-nav button.active{color:#ff5965}
-.form{display:grid;gap:11px}
-.field label{display:block;color:var(--muted);font-size:12px;margin:0 0 6px}
-.field input,.field select,.field textarea{width:100%;background:#0b1220;border:1px solid #33415a;border-radius:11px;padding:12px;color:var(--text);font:inherit;outline:none}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red)}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.form-actions{display:flex;gap:8px;margin-top:5px}
-.form-actions button{flex:1}
-.notice{font-size:12px;color:var(--muted);line-height:1.5}
-.money{font-size:18px;font-weight:900;color:#ff737d}
-.divider{height:1px;background:var(--line);margin:13px 0}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--red),#8d1424);font-size:25px;box-shadow:0 8px 25px #ef334033}.brand h1{font-size:17px;line-height:1.2;margin:0}.brand p{font-size:12px;color:var(--muted);margin:5px 0 0}
+main{padding:18px;max-width:760px;margin:auto}.screen{display:none}.screen.active{display:block}.eyebrow{color:#ff737d;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.heading{font-size:25px;margin:5px 0 6px}.sub{color:var(--muted);margin:0 0 18px;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}.stat,.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:17px;padding:15px}.stat span{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:26px;margin-top:7px}.stat .accent{color:#ff646f}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px;font-size:16px;font-weight:800}.btn{border:0;border-radius:12px;background:var(--red);color:white;padding:12px 15px;font-weight:800;font-size:13px;cursor:pointer}.btn:active{transform:scale(.98)}.btn.secondary{background:#26334a;color:#e7edf8;border:1px solid #3a4962}.btn.danger{background:#401c28;color:#ffb5bc;border:1px solid #71303c}.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.quick button{min-height:104px;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:16px;color:var(--text);padding:15px;font:inherit;cursor:pointer}.quick b{display:block;font-size:14px;margin:9px 0 3px}.quick small{color:var(--muted);font-size:12px}.quick .qicon{font-size:23px}
+.list{display:grid;gap:10px}.item{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:14px}.item-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.item h3{font-size:15px;margin:0 0 5px}.item p{margin:3px 0;color:var(--muted);font-size:12px;overflow-wrap:anywhere}.plate{display:inline-block;background:#f3f4f6;color:#111827;border-radius:5px;padding:4px 7px;font-size:12px;font-weight:900;letter-spacing:.4px}.tag{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:5px 8px;background:#25334a;color:#cbd5e1}.tag.done{background:#123a32;color:#86efac}.tag.wait{background:#483519;color:#fcd34d}.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.actions button{padding:8px 10px;font-size:12px}.empty{text-align:center;color:var(--muted);padding:28px 15px;border:1px dashed #34415a;border-radius:15px}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px calc(8px + env(safe-area-inset-bottom));background:#0d1422f5;border-top:1px solid var(--line);backdrop-filter:blur(14px)}nav button{border:0;background:transparent;color:#8190a8;font-size:10px;font-weight:700;padding:5px 0;cursor:pointer}nav button span{display:block;font-size:19px;margin-bottom:3px}nav button.active{color:#ff5965}
+.form{display:grid;gap:11px}.field label{display:block;color:var(--muted);font-size:12px;margin:0 0 6px}.field input,.field select,.field textarea{width:100%;background:#0b1220;border:1px solid #33415a;border-radius:11px;padding:12px;color:var(--text);font:inherit;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form-actions{display:flex;gap:8px;margin-top:5px}.form-actions button{flex:1}.notice{font-size:12px;color:var(--muted);line-height:1.5}.money{font-size:18px;font-weight:900;color:#ff737d}.divider{height:1px;background:var(--line);margin:13px 0}
 @media(min-width:600px){.stats{grid-template-columns:repeat(4,1fr)}.quick{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
-<header>
-<div class="brand">
-<div class="logo">🚘</div>
-<div><h1>ALMAN OTO BAKIM SERVİSİ</h1><p>Servis ve müşteri yönetimi</p></div>
-</div>
-</header>
+<header><div class="brand"><div class="logo">🚘</div><div><h1>ALMAN OTO BAKIM SERVİSİ</h1><p>Servis ve müşteri yönetimi</p></div></div></header>
 <main>
-
 <section id="home" class="screen active">
-<div class="eyebrow">SERVİS PANELİ</div>
-<h2 class="heading">Hoş geldin 👋</h2>
-<p class="sub">İşlerini tek ekrandan kolayca takip et.</p>
+<div class="eyebrow">SERVİS PANELİ</div><h2 class="heading">Hoş geldin 👋</h2><p class="sub">İşlerini tek ekrandan kolayca takip et.</p>
 <div class="stats">
 <div class="stat"><span>Kayıtlı araç</span><strong id="statVehicles">0</strong></div>
 <div class="stat"><span>Müşteri</span><strong id="statCustomers">0</strong></div>
@@ -91,221 +40,544 @@ nav button.active{color:#ff5965}
 <div class="section-title">Son servis kayıtları <button class="btn secondary" onclick="openScreen('services')">Tümünü gör</button></div>
 <div id="recentServices" class="list"></div>
 </section>
-
 <section id="customers" class="screen">
-<div class="eyebrow">KAYITLAR</div>
-<h2 class="heading">Müşteriler</h2>
-<p class="sub">Araç kayıtlarından müşteri listen oluşturulur.</p>
+<div class="eyebrow">KAYITLAR</div><h2 class="heading">Müşteriler</h2><p class="sub">Araç kayıtlarından müşteri listen oluşturulur.</p>
 <div class="section-title">Müşteri listesi <button class="btn" onclick="openCustomerForm()">+ Ekle</button></div>
 <div id="customerFormWrap" class="card" style="display:none;margin-bottom:14px">
 <form id="customerForm" class="form">
 <input type="hidden" id="customerOldName">
 <div class="field"><label for="customerName">Ad soyad *</label><input id="customerName" required placeholder="Örn. Ahmet Yılmaz"></div>
 <div class="field"><label for="customerPhone">Telefon</label><input id="customerPhone" inputmode="tel" placeholder="05xx xxx xx xx"></div>
-<p class="notice">Müşteri bilgisi, bu müşteriye bağlı araç ve servis kayıtlarında güncellenir.</p>
-<div class="form-actions"><button type="button" class="btn secondary" onclick="closeCustomerForm()">Vazgeç</button><button class="btn" type="submit">Kaydet</button></div>
-</form>
-</div>
+<div class="field"><label for="customerAddress">Adres</label><input id="customerAddress" placeholder="Müşteri adresi"></div>
+<div class="form-actions"><button class="btn" type="submit">Kaydet</button><button class="btn secondary" type="button" onclick="closeCustomerForm()">İptal</button></div>
+</form></div>
 <div id="customersList" class="list"></div>
 </section>
 
 <section id="vehicles" class="screen">
-<div class="eyebrow">ARAÇ TAKİBİ</div>
-<h2 class="heading">Araçlar</h2>
-<p class="sub">Plaka, araç ve müşteri bilgilerini yönet.</p>
+<div class="eyebrow">ARAÇ YÖNETİMİ</div><h2 class="heading">Araçlar</h2><p class="sub">Müşterilerin araçlarını kaydet ve takip et.</p>
 <div class="section-title">Araç listesi <button class="btn" onclick="openVehicleForm()">+ Araç ekle</button></div>
 <div id="vehicleFormWrap" class="card" style="display:none;margin-bottom:14px">
 <form id="vehicleForm" class="form">
 <input type="hidden" id="vehicleId">
-<div class="field"><label for="vPlate">Plaka *</label><input id="vPlate" required placeholder="34 ABC 123"></div>
+<div class="field"><label for="vehicleOwner">Araç sahibi *</label><input id="vehicleOwner" required placeholder="Müşteri adı"></div>
 <div class="form-grid">
-<div class="field"><label for="vBrand">Marka / model *</label><input id="vBrand" required placeholder="Volkswagen Golf"></div>
-<div class="field"><label for="vYear">Yıl</label><input id="vYear" inputmode="numeric" placeholder="2020"></div>
+<div class="field"><label for="vehiclePlate">Plaka *</label><input id="vehiclePlate" required placeholder="34 ABC 123"></div>
+<div class="field"><label for="vehicleBrand">Marka *</label><input id="vehicleBrand" required placeholder="Volkswagen"></div>
+<div class="field"><label for="vehicleModel">Model</label><input id="vehicleModel" placeholder="Passat"></div>
+<div class="field"><label for="vehicleYear">Model yılı</label><input id="vehicleYear" type="number" min="1950" max="2100" placeholder="2020"></div>
 </div>
-<div class="field"><label for="vCustomer">Müşteri adı *</label><input id="vCustomer" required placeholder="Ad soyad"></div>
-<div class="field"><label for="vPhone">Telefon</label><input id="vPhone" inputmode="tel" placeholder="05xx xxx xx xx"></div>
-<div class="form-actions"><button type="button" class="btn secondary" onclick="closeVehicleForm()">Vazgeç</button><button class="btn" type="submit">Kaydet</button></div>
-</form>
-</div>
+<div class="field"><label for="vehicleKm">Kilometre</label><input id="vehicleKm" type="number" min="0" placeholder="150000"></div>
+<div class="form-actions"><button class="btn" type="submit">Kaydet</button><button class="btn secondary" type="button" onclick="closeVehicleForm()">İptal</button></div>
+</form></div>
 <div id="vehiclesList" class="list"></div>
 </section>
 
 <section id="service" class="screen">
-<div class="eyebrow">YENİ KAYIT</div>
-<h2 class="heading">Servis oluştur</h2>
-<p class="sub">Yapılan işlemleri ve ücretleri kaydet.</p>
+<div class="eyebrow">SERVİS İŞLEMLERİ</div><h2 class="heading">Servis oluştur</h2><p class="sub">Araç ve yapılan işlemleri kaydet.</p>
 <div class="card">
 <form id="serviceForm" class="form">
-<div class="field"><label for="sVehicle">Araç seç *</label><select id="sVehicle" required><option value="">Önce araç seç</option></select></div>
-<div class="field"><label for="sWork">Yapılan işlemler *</label><textarea id="sWork" required rows="3" placeholder="Yağ değişimi, filtre değişimi..."></textarea></div>
+<input type="hidden" id="serviceId">
+<div class="field"><label for="servicePlate">Araç plakası *</label><input id="servicePlate" required placeholder="34 ABC 123"></div>
+<div class="field"><label for="serviceCustomer">Müşteri adı</label><input id="serviceCustomer" placeholder="Müşteri adı"></div>
+<div class="field"><label for="serviceDate">Servis tarihi *</label><input id="serviceDate" type="date" required></div>
+<div class="field"><label for="serviceType">Yapılan işlem *</label><input id="serviceType" required placeholder="Yağ değişimi, bakım, onarım..."></div>
 <div class="form-grid">
-<div class="field"><label for="sParts">Parça ücreti (₺)</label><input id="sParts" type="number" min="0" step="0.01" value="0"></div>
-<div class="field"><label for="sLabor">İşçilik (₺)</label><input id="sLabor" type="number" min="0" step="0.01" value="0"></div>
+<div class="field"><label for="serviceParts">Parça ücreti (₺)</label><input id="serviceParts" type="number" min="0" step="0.01" value="0" oninput="calcTotal()"></div>
+<div class="field"><label for="serviceLabor">İşçilik ücreti (₺)</label><input id="serviceLabor" type="number" min="0" step="0.01" value="0" oninput="calcTotal()"></div>
 </div>
-<div class="field"><label for="sStatus">Durum</label><select id="sStatus"><option>Bekliyor</option><option>Devam ediyor</option><option>Tamamlandı</option></select></div>
+<div class="field"><label for="serviceStatus">Durum</label><select id="serviceStatus"><option>Bekliyor</option><option>İşlemde</option><option>Tamamlandı</option><option>Teslim edildi</option></select></div>
+<div class="field"><label for="serviceNotes">Notlar</label><textarea id="serviceNotes" rows="3" placeholder="Ek bilgi..."></textarea></div>
 <div class="divider"></div>
-<div class="item-top"><span style="color:var(--muted)">Toplam</span><strong id="serviceTotal" class="money">₺0</strong></div>
-<div class="form-actions"><button type="button" class="btn secondary" onclick="openScreen('home')">Vazgeç</button><button class="btn" type="submit">Servisi kaydet</button></div>
+<div>Toplam ücret: <span class="money" id="serviceTotal">₺0</span></div>
+<div class="form-actions"><button class="btn" type="submit">Servisi kaydet</button><button class="btn secondary" type="button" onclick="resetServiceForm()">Temizle</button></div>
 </form>
 </div>
 </section>
 
 <section id="services" class="screen">
-<div class="eyebrow">GEÇMİŞ</div>
-<h2 class="heading">Servis kayıtları</h2>
-<p class="sub">Servis detaylarını, durumunu ve toplam tutarı takip et.</p>
-<div id="servicesList" class="list"></div>
+<div class="eyebrow">GEÇMİŞ KAYITLAR</div><h2 class="heading">Servis geçmişi</h2><p class="sub">Servis kayıtlarını görüntüle ve düzenle.</p>
+<div class="field"><label for="serviceSearch">Plaka, müşteri veya işlem ara</label><input id="serviceSearch" placeholder="Arama..." oninput="renderServices()"></div>
+<div class="section-title">Tüm servisler</div><div id="servicesList" class="list"></div>
 </section>
 
 <section id="settings" class="screen">
-<div class="eyebrow">UYGULAMA</div>
-<h2 class="heading">Ayarlar</h2>
-<p class="sub">Verilerini yedekle veya daha önce aldığın yedeği geri yükle.</p>
+<div class="eyebrow">UYGULAMA</div><h2 class="heading">Ayarlar ve yedekleme</h2><p class="sub">Verilerini yedekle veya daha önce aldığın yedeği geri yükle.</p>
 <div class="card">
-<h3 style="margin-top:0">Veri yedekleme</h3>
-<p class="notice">Yedek dosyası araç ve servis kayıtlarını içerir. Dosyayı güvenli bir yerde sakla.</p>
-<div class="actions">
-<button class="btn" onclick="backupData()">Yedeği indir</button>
-<button class="btn secondary" onclick="document.getElementById('restoreFile').click()">Yedekten geri yükle</button>
-<input id="restoreFile" type="file" accept="application/json,.json" hidden onchange="restoreData(event)">
+<h3>📦 Veri yedekleme</h3>
+<p class="notice">Araç, müşteri ve servis kayıtlarını JSON dosyası olarak indirebilirsin.</p>
+<div class="actions"><button class="btn" onclick="backupData()">Yedeği indir</button><button class="btn secondary" onclick="document.getElementById('restoreFile').click()">Yedek yükle</button></div>
+<input id="restoreFile" type="file" accept=".json,application/json" style="display:none" onchange="restoreData(event)">
+<div class="divider"></div>
+<button class="btn danger" onclick="clearAllData()">Bütün kayıtları sil</button>
 </div>
-</div>
-<div class="card" style="margin-top:12px">
-<h3 style="margin-top:0">Veri bilgisi</h3>
-<p class="notice">Kayıtlar bu cihazda Android uygulama depolamasında tutulur. Uygulamayı kaldırmak veya uygulama verilerini silmek kayıtları silebilir; düzenli yedek al.</p>
-<button class="btn danger" onclick="clearData()">Tüm kayıtları sil</button>
-</div>
+<p class="notice" style="margin-top:16px">Not: Uygulama verilerini silmeden önce yedek al. Telefonun uygulama verileri temizlenirse kayıtlar kaybolabilir.</p>
 </section>
 </main>
 
 <nav>
-<button class="active" data-screen="home" onclick="openScreen('home')"><span>⌂</span>Ana Sayfa</button>
-<button data-screen="customers" onclick="openScreen('customers')"><span>♙</span>Müşteriler</button>
-<button data-screen="vehicles" onclick="openScreen('vehicles')"><span>🚘</span>Araçlar</button>
-<button data-screen="services" onclick="openScreen('services')"><span>🔧</span>Servis</button>
-<button data-screen="settings" onclick="openScreen('settings')"><span>⚙</span>Ayarlar</button>
+<button class="active" data-screen="home" onclick="openScreen('home')"><span>🏠</span>Ana sayfa</button>
+<button data-screen="customers" onclick="openScreen('customers')"><span>👥</span>Müşteriler</button>
+<button data-screen="vehicles" onclick="openScreen('vehicles')"><span>🚗</span>Araçlar</button>
+<button data-screen="services" onclick="openScreen('services')"><span>🔧</span>Servisler</button>
+<button data-screen="settings" onclick="openScreen('settings')"><span>⚙️</span>Ayarlar</button>
 </nav>
-
 <script>
-const KEY_V='araclar', KEY_S='servisler';
-let vehicles=[], services=[];
+"use strict";
 
-function oku(key){
- try{
-  if(window.AndroidDepo&&typeof AndroidDepo.oku==='function'){
-   const v=AndroidDepo.oku(key);
-   if(v&&v!=='null')return v;
+const $ = id => document.getElementById(id);
+
+let vehicles = [];
+let services = [];
+let customers = [];
+
+function loadData() {
+  try {
+    const v = window.AndroidDepo?.getVeri("araclar");
+    const s = window.AndroidDepo?.getVeri("servisler");
+    vehicles = v ? JSON.parse(v) : JSON.parse(localStorage.getItem("araclar") || "[]");
+    services = s ? JSON.parse(s) : JSON.parse(localStorage.getItem("servisler") || "[]");
+    customers = JSON.parse(localStorage.getItem("musteriler") || "[]");
+    if (!Array.isArray(vehicles)) vehicles = [];
+    if (!Array.isArray(services)) services = [];
+    if (!Array.isArray(customers)) customers = [];
+  } catch (e) {
+    vehicles = [];
+    services = [];
+    customers = [];
   }
-  return localStorage.getItem(key)||'[]';
- }catch(e){return localStorage.getItem(key)||'[]';}
 }
-function yaz(key,value){
- const str=JSON.stringify(value);
- try{localStorage.setItem(key,str);}catch(e){}
- try{if(window.AndroidDepo&&typeof AndroidDepo.yaz==='function')AndroidDepo.yaz(key,str);}catch(e){}
-}
-function makeId(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
-function saveAll(){yaz(KEY_V,vehicles);yaz(KEY_S,services)}
-function money(n){return new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY',maximumFractionDigits:2}).format(Number(n)||0)}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-function load(){
- try{vehicles=JSON.parse(oku(KEY_V)||'[]');if(!Array.isArray(vehicles))vehicles=[];}catch(e){vehicles=[];}
- try{services=JSON.parse(oku(KEY_S)||'[]');if(!Array.isArray(services))services=[];}catch(e){services=[];}
- vehicles=vehicles.map(v=>({...v,id:v.id||makeId(),plaka:v.plaka||'',musteri:v.musteri||'',telefon:v.telefon||'',arac:v.arac||'',yil:v.yil||''}));
- services=services.map(s=>({...s,id:s.id||makeId(),durum:s.durum||'Tamamlandı'}));
- saveAll();render();
+function saveData() {
+  try {
+    localStorage.setItem("araclar", JSON.stringify(vehicles));
+    localStorage.setItem("servisler", JSON.stringify(services));
+    localStorage.setItem("musteriler", JSON.stringify(customers));
+    if (window.AndroidDepo) {
+      AndroidDepo.kaydetVeri("araclar", JSON.stringify(vehicles));
+      AndroidDepo.kaydetVeri("servisler", JSON.stringify(services));
+    }
+  } catch (e) {
+    alert("Kayıt sırasında sorun oluştu: " + e.message);
+  }
 }
-function customers(){
- const m=new Map();
- vehicles.forEach(v=>{
-  const key=(v.musteri||'').trim().toLocaleLowerCase('tr-TR');
-  if(key&&!m.has(key))m.set(key,{name:v.musteri,phone:v.telefon||'',count:0});
-  if(key)m.get(key).count++;
- });
- services.forEach(s=>{
-  const key=(s.musteri||'').trim().toLocaleLowerCase('tr-TR');
-  if(key&&!m.has(key))m.set(key,{name:s.musteri,phone:s.telefon||'',count:0});
- });
- return [...m.entries()].map(([key,val])=>({key,...val})).sort((a,b)=>a.name.localeCompare(b.name,'tr'));
+
+function makeId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 }
-function openScreen(id){
- document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===id));
- document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.screen===id||(id==='service'&&x.dataset.screen==='services')));
- render();
+
+function money(value) {
+  return Number(value || 0).toLocaleString("tr-TR", {
+    style: "currency",
+    currency: "TRY"
+  });
 }
-function render(){
- document.getElementById('statVehicles').textContent=vehicles.length;
- document.getElementById('statCustomers').textContent=customers().length;
- document.getElementById('statServices').textContent=services.length;
- document.getElementById('statRevenue').textContent=money(services.reduce((a,s)=>a+(Number(s.toplam)||Number(s.parca||0)+Number(s.iscilik||0)),0));
- renderVehicles();renderCustomers();renderServices();fillVehicleSelect();renderRecent();calcTotal();
+
+function safe(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[c]));
 }
-function renderVehicles(){
- const el=document.getElementById('vehiclesList');
- if(!vehicles.length){el.innerHTML='<div class="empty">Henüz araç kaydı yok.<br>“+ Araç ekle” ile ilk aracını kaydet.</div>';return;}
- el.innerHTML=vehicles.map(v=>`<article class="item"><div class="item-top"><div><span class="plate">${esc(v.plaka||'PLAKA YOK')}</span><h3 style="margin-top:9px">${esc(v.arac||'Araç belirtilmedi')} ${v.yil?'· '+esc(v.yil):''}</h3><p>👤 ${esc(v.musteri)}</p><p>☎ ${esc(v.telefon||'Telefon yok')}</p></div><span class="tag">Araç</span></div><div class="actions"><button class="btn secondary" onclick="editVehicle('${v.id}')">Düzenle</button><button class="btn secondary" onclick="newServiceFor('${v.id}')">Servis ekle</button><button class="btn danger" onclick="deleteVehicle('${v.id}')">Sil</button></div></article>`).join('');
+
+function openScreen(name) {
+  document.querySelectorAll(".screen").forEach(el => el.classList.remove("active"));
+  document.querySelectorAll("nav button").forEach(el => el.classList.remove("active"));
+  const screen = $(name);
+  if (screen) screen.classList.add("active");
+  const nav = document.querySelector('nav button[data-screen="' + name + '"]');
+  if (nav) nav.classList.add("active");
+  renderAll();
 }
-function renderCustomers(){
- const el=document.getElementById('customersList'),cs=customers();
- if(!cs.length){el.innerHTML='<div class="empty">Müşteri kaydı yok.<br>Müşteri eklemek için “+ Ekle” düğmesine bas.</div>';return;}
- el.innerHTML=cs.map(c=>`<article class="item"><div class="item-top"><div><h3>👤 ${esc(c.name)}</h3><p>☎ ${esc(c.phone||'Telefon yok')}</p><p>${c.count} araç kaydı</p></div><span class="tag">Müşteri</span></div><div class="actions"><button class="btn secondary" onclick="editCustomer('${encodeURIComponent(c.name)}')">Düzenle</button><button class="btn secondary" onclick="customerWhatsApp('${encodeURIComponent(c.name)}')">WhatsApp</button></div></article>`).join('');
+
+function renderAll() {
+  renderDashboard();
+  renderCustomers();
+  renderVehicles();
+  renderServices();
 }
-function serviceCard(s){
- const status=s.durum||'Tamamlandı',tag=status==='Tamamlandı'?'done':status==='Bekliyor'?'wait':'';
- return `<article class="item"><div class="item-top"><div><span class="plate">${esc(s.plaka||'PLAKA YOK')}</span><h3 style="margin-top:9px">${esc(s.arac||'Araç')} · ${esc(s.musteri||'Müşteri')}</h3><p>${esc(s.tarih||'Tarih yok')}</p></div><span class="tag ${tag}">${esc(status)}</span></div><p style="margin-top:10px;color:#e0e7f2">${esc(s.islemler||'İşlem belirtilmemiş')}</p><div class="divider"></div><div class="item-top"><span class="notice">Parça ${money(s.parca)} · İşçilik ${money(s.iscilik)}</span><strong class="money">${money(s.toplam||Number(s.parca||0)+Number(s.iscilik||0))}</strong></div><div class="actions"><button class="btn secondary" onclick="changeStatus('${s.id}')">Durumu değiştir</button><button class="btn secondary" onclick="shareService('${s.id}')">WhatsApp paylaş</button><button class="btn danger" onclick="deleteService('${s.id}')">Sil</button></div></article>`;
+
+function renderDashboard() {
+  $("statVehicles").textContent = vehicles.length;
+  $("statCustomers").textContent = getAllCustomers().length;
+  $("statServices").textContent = services.length;
+  $("statRevenue").textContent = money(
+    services.reduce((sum, s) => sum + Number(s.total || 0), 0)
+  );
+
+  const recent = [...services].slice(-4).reverse();
+  $("recentServices").innerHTML = recent.length
+    ? recent.map(serviceCard).join("")
+    : '<div class="empty">Henüz servis kaydı yok.</div>';
 }
-function renderServices(){
- const el=document.getElementById('servicesList');
- if(!services.length){el.innerHTML='<div class="empty">Henüz servis kaydı yok.</div>';return;}
- el.innerHTML=[...services].reverse().map(s=>serviceCard(s)).join('');
+
+function getAllCustomers() {
+  const names = new Set(customers.map(c => c.name).filter(Boolean));
+  vehicles.forEach(v => {
+    if (v.owner) names.add(v.owner);
+  });
+  return [...names].map(name => {
+    const customer = customers.find(c => c.name === name);
+    return customer || { name, phone: "", address: "" };
+  });
 }
-function renderRecent(){
- const el=document.getElementById('recentServices');
- if(!services.length){el.innerHTML='<div class="empty">Son servis kayıtları burada görünecek.</div>';return;}
- el.innerHTML=[...services].reverse().slice(0,3).map(serviceCard).join('');
+
+function renderCustomers() {
+  const list = $("customersList");
+  if (!list) return;
+  const data = getAllCustomers();
+  list.innerHTML = data.length ? data.map(c => `
+    <div class="item">
+      <div class="item-top">
+        <div><h3>👤 ${safe(c.name)}</h3>
+        <p>Telefon: ${safe(c.phone || "Belirtilmedi")}</p>
+        <p>Adres: ${safe(c.address || "Belirtilmedi")}</p></div>
+      </div>
+      <div class="actions">
+        <button class="btn secondary" onclick="editCustomer('${safe(c.name)}')">Düzenle</button>
+        <button class="btn danger" onclick="deleteCustomer('${safe(c.name)}')">Sil</button>
+      </div>
+    </div>`).join("") : '<div class="empty">Henüz müşteri yok. + Ekle düğmesine bas.</div>';
 }
-function fillVehicleSelect(){
- const sel=document.getElementById('sVehicle'),old=sel.value;
- sel.innerHTML='<option value="">Araç seç</option>'+vehicles.map(v=>`<option value="${esc(v.id)}">${esc(v.plaka)} · ${esc(v.arac)} · ${esc(v.musteri)}</option>`).join('');
- if(vehicles.some(v=>v.id===old))sel.value=old;
+
+function openCustomerForm(name = "") {
+  $("customerFormWrap").style.display = "block";
+  $("customerOldName").value = name;
+  const c = customers.find(x => x.name === name) || { name: "", phone: "", address: "" };
+  $("customerName").value = c.name;
+  $("customerPhone").value = c.phone || "";
+  $("customerAddress").value = c.address || "";
+  $("customerName").focus();
 }
-function openVehicleForm(){
- document.getElementById('vehicleForm').reset();
- document.getElementById('vehicleId').value='';
- document.getElementById('vehicleFormWrap').style.display='block';
- document.getElementById('vehicleFormWrap').scrollIntoView({behavior:'smooth',block:'start'});
+
+function closeCustomerForm() {
+  $("customerFormWrap").style.display = "none";
+  $("customerForm").reset();
+  $("customerOldName").value = "";
 }
-function closeVehicleForm(){document.getElementById('vehicleFormWrap').style.display='none'}
-function editVehicle(id){
- const v=vehicles.find(x=>x.id===id);if(!v)return;
- openScreen('vehicles');
- document.getElementById('vehicleFormWrap').style.display='block';
- document.getElementById('vehicleId').value=v.id;
- document.getElementById('vPlate').value=v.plaka;
- document.getElementById('vBrand').value=v.arac;
- document.getElementById('vYear').value=v.yil;
- document.getElementById('vCustomer').value=v.musteri;
- document.getElementById('vPhone').value=v.telefon;
- document.getElementById('vehicleFormWrap').scrollIntoView({behavior:'smooth'});
+
+function editCustomer(name) {
+  openScreen("customers");
+  openCustomerForm(name);
 }
-document.getElementById('vehicleForm').addEventListener('submit',e=>{
- e.preventDefault();
- const id=document.getElementById('vehicleId').value;
- const v={id:id||makeId(),plaka:document.getElementById('vPlate').value.trim().toLocaleUpperCase('tr-TR'),arac:document.getElementById('vBrand').value.trim(),yil:document.getElementById('vYear').value.trim(),musteri:document.getElementById('vCustomer').value.trim(),telefon:document.getElementById('vPhone').value.trim()};
- if(id)vehicles=vehicles.map(x=>x.id===id?v:x);else vehicles.push(v);
- saveAll();closeVehicleForm();render();alert('Araç kaydedildi.');
+
+function deleteCustomer(name) {
+  if (!confirm(name + " müşterisini silmek istiyor musun?")) return;
+  customers = customers.filter(c => c.name !== name);
+  saveData();
+  renderAll();
+}
+
+$("customerForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const oldName = $("customerOldName").value;
+  const name = $("customerName").value.trim();
+  const phone = $("customerPhone").value.trim();
+  const address = $("customerAddress").value.trim();
+
+  if (!name) {
+    alert("Müşteri adını gir.");
+    return;
+  }
+
+  if (oldName && oldName !== name) {
+    vehicles.forEach(v => {
+      if (v.owner === oldName) v.owner = name;
+    });
+    services.forEach(s => {
+      if (s.customer === oldName) s.customer = name;
+    });
+  }
+
+  customers = customers.filter(c => c.name !== oldName && c.name !== name);
+  customers.push({ name, phone, address });
+  saveData();
+  closeCustomerForm();
+  renderAll();
+  alert("Müşteri kaydedildi.");
 });
-function deleteVehicle(id){
- if(!confirm('Bu araç kaydı silinsin mi? İlgili servis kayıtları korunur.'))return;
- vehicles=vehicles.filter(v=>v.id!==id);saveAll();render();
+
+function openVehicleForm(id = "") {
+  $("vehicleFormWrap").style.display = "block";
+  const v = vehicles.find(x => x.id === id) || {
+    id: "", owner: "", plate: "", brand: "", model: "", year: "", km: ""
+  };
+  $("vehicleId").value = v.id;
+  $("vehicleOwner").value = v.owner;
+  $("vehiclePlate").value = v.plate;
+  $("vehicleBrand").value = v.brand;
+  $("vehicleModel").value = v.model;
+  $("vehicleYear").value = v.year;
+  $("vehicleKm").value = v.km;
+  $("vehicleOwner").focus();
 }
-function openCustomerForm(name='',phone=''){
- document.getElementById('customerForm').reset();
- document.getElementById('customerOldName').value=name;
- document.getElementById('customerName').value=name;
- document.getElementById('customerPhone').value=phone;
- document.getElementById('customerFormWrap').style.display='block';
- document.getElementById('customerFormWrap').scrollIntoView({behavior:'smooth'});
+
+function closeVehicleForm() {
+  $("vehicleFormWrap").style.display = "none";
+  $("vehicleForm").reset();
+  $("vehicleId").value = "";
 }
-function closeCustomerForm(){document.getElementById('customerFormWrap').styl
+
+$("vehicleForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const id = $("vehicleId").value || makeId();
+  const v = {
+    id,
+    owner: $("vehicleOwner").value.trim(),
+    plate: $("vehiclePlate").value.trim().toLocaleUpperCase("tr-TR"),
+    brand: $("vehicleBrand").value.trim(),
+    model: $("vehicleModel").value.trim(),
+    year: $("vehicleYear").value,
+    km: $("vehicleKm").value
+  };
+
+  const existing = vehicles.findIndex(x => x.id === id);
+  if (existing >= 0) vehicles[existing] = v;
+  else vehicles.push(v);
+
+  if (!customers.some(c => c.name === v.owner)) {
+    customers.push({ name: v.owner, phone: "", address: "" });
+  }
+
+  saveData();
+  closeVehicleForm();
+  renderAll();
+  alert("Araç kaydedildi.");
+});
+
+function renderVehicles() {
+  const list = $("vehiclesList");
+  if (!list) return;
+  list.innerHTML = vehicles.length ? [...vehicles].reverse().map(v => `
+    <div class="item">
+      <div class="item-top">
+        <div><span class="plate">${safe(v.plate)}</span>
+        <h3 style="margin-top:9px">${safe(v.brand)} ${safe(v.model)}</h3>
+        <p>Sahibi: ${safe(v.owner)}</p>
+        <p>Yıl: ${safe(v.year || "-")} · KM: ${safe(v.km || "-")}</p></div>
+      </div>
+      <div class="actions">
+        <button class="btn secondary" onclick="openVehicleForm('${v.id}')">Düzenle</button>
+        <button class="btn secondary" onclick="newServiceFor('${safe(v.plate)}','${safe(v.owner)}')">Servis oluştur</button>
+        <button class="btn danger" onclick="deleteVehicle('${v.id}')">Sil</button>
+      </div>
+    </div>`).join("") : '<div class="empty">Henüz araç eklenmedi.</div>';
+}
+
+function deleteVehicle(id) {
+  if (!confirm("Bu aracı silmek istiyor musun?")) return;
+  vehicles = vehicles.filter(v => v.id !== id);
+  saveData();
+  renderAll();
+}
+
+function newServiceFor(plate, owner) {
+  openScreen("service");
+  resetServiceForm();
+  $("servicePlate").value = plate;
+  $("serviceCustomer").value = owner;
+}
+ function calcTotal() {
+  const parts = Number($("serviceParts").value || 0);
+  const labor = Number($("serviceLabor").value || 0);
+  $("serviceTotal").textContent = money(parts + labor);
+}
+
+function resetServiceForm() {
+  $("serviceForm").reset();
+  $("serviceId").value = "";
+  $("serviceDate").value = new Date().toISOString().slice(0, 10);
+  $("serviceParts").value = "0";
+  $("serviceLabor").value = "0";
+  $("serviceStatus").value = "Bekliyor";
+  calcTotal();
+}
+
+$("serviceForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const id = $("serviceId").value || makeId();
+  const service = {
+    id,
+    plate: $("servicePlate").value.trim().toLocaleUpperCase("tr-TR"),
+    customer: $("serviceCustomer").value.trim(),
+    date: $("serviceDate").value,
+    type: $("serviceType").value.trim(),
+    parts: Number($("serviceParts").value || 0),
+    labor: Number($("serviceLabor").value || 0),
+    status: $("serviceStatus").value,
+    notes: $("serviceNotes").value.trim()
+  };
+
+  service.total = service.parts + service.labor;
+
+  const index = services.findIndex(s => s.id === id);
+  if (index >= 0) services[index] = service;
+  else services.push(service);
+
+  saveData();
+  resetServiceForm();
+  renderAll();
+  alert("Servis kaydedildi.");
+});
+
+function serviceCard(s) {
+  const done = s.status === "Tamamlandı" || s.status === "Teslim edildi";
+  return `
+    <div class="item">
+      <div class="item-top">
+        <div>
+          <span class="plate">${safe(s.plate)}</span>
+          <h3 style="margin-top:9px">${safe(s.type)}</h3>
+          <p>${safe(s.customer || "Müşteri belirtilmedi")} · ${safe(s.date)}</p>
+          <p>Toplam: <b>${money(s.total)}</b></p>
+        </div>
+        <span class="tag ${done ? "done" : "wait"}">${safe(s.status)}</span>
+      </div>
+      ${s.notes ? `<p style="margin-top:10px">${safe(s.notes)}</p>` : ""}
+      <div class="actions">
+        <button class="btn secondary" onclick="editService('${s.id}')">Düzenle</button>
+        <button class="btn secondary" onclick="shareService('${s.id}')">WhatsApp</button>
+        <button class="btn danger" onclick="deleteService('${s.id}')">Sil</button>
+      </div>
+    </div>`;
+}
+
+function renderServices() {
+  const list = $("servicesList");
+  if (!list) return;
+
+  const search = ($("serviceSearch")?.value || "").toLocaleLowerCase("tr-TR");
+  const filtered = [...services].reverse().filter(s =>
+    [s.plate, s.customer, s.type, s.status]
+      .join(" ")
+      .toLocaleLowerCase("tr-TR")
+      .includes(search)
+  );
+
+  list.innerHTML = filtered.length
+    ? filtered.map(serviceCard).join("")
+    : '<div class="empty">Arama kriterlerine uygun servis kaydı bulunamadı.</div>';
+}
+
+function editService(id) {
+  const s = services.find(x => x.id === id);
+  if (!s) return;
+
+  openScreen("service");
+  $("serviceId").value = s.id;
+  $("servicePlate").value = s.plate;
+  $("serviceCustomer").value = s.customer || "";
+  $("serviceDate").value = s.date;
+  $("serviceType").value = s.type;
+  $("serviceParts").value = s.parts || 0;
+  $("serviceLabor").value = s.labor || 0;
+  $("serviceStatus").value = s.status || "Bekliyor";
+  $("serviceNotes").value = s.notes || "";
+  calcTotal();
+}
+
+function deleteService(id) {
+  if (!confirm("Bu servis kaydını silmek istiyor musun?")) return;
+  services = services.filter(s => s.id !== id);
+  saveData();
+  renderAll();
+}
+
+function shareService(id) {
+  const s = services.find(x => x.id === id);
+  if (!s) return;
+
+  const message =
+    "ALMAN OTO BAKIM SERVİSİ\n" +
+    "Plaka: " + s.plate + "\n" +
+    "Müşteri: " + (s.customer || "-") + "\n" +
+    "İşlem: " + s.type + "\n" +
+    "Tarih: " + s.date + "\n" +
+    "Durum: " + s.status + "\n" +
+    "Toplam: " + money(s.total);
+
+  const url = "https://wa.me/?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+
+function backupData() {
+  const data = {
+    vehicles,
+    services,
+    customers,
+    backupDate: new Date().toISOString()
+  };
+
+  const blob = new Blob(
+    [JSON.stringify(data, null, 2)],
+    { type: "application/json" }
+  );
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "alman-oto-yedek.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function restoreData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+
+      if (!Array.isArray(data.vehicles) ||
+          !Array.isArray(data.services)) {
+        throw new Error("Yedek dosyasının biçimi geçersiz.");
+      }
+
+      if (!confirm("Mevcut kayıtlar yedekteki kayıtlarla değiştirilsin mi?")) {
+        event.target.value = "";
+        return;
+      }
+
+      vehicles = data.vehicles;
+      services = data.services;
+      customers = Array.isArray(data.customers) ? data.customers : [];
+
+      saveData();
+      renderAll();
+      alert("Yedek başarıyla yüklendi.");
+    } catch (error) {
+      alert("Yedek yüklenemedi: " + error.message);
+    }
+
+    event.target.value = "";
+  };
+
+  reader.readAsText(file);
+}
+
+function clearAllData() {
+  if (!confirm("Bütün araç, müşteri ve servis kayıtları silinsin mi?")) return;
+  if (!confirm("Bu işlem geri alınamaz. Emin misin?")) return;
+
+  vehicles = [];
+  services = [];
+  customers = [];
+
+  saveData();
+  renderAll();
+  alert("Kayıtlar silindi.");
+}
+
+loadData();
+renderAll();
+resetServiceForm();
+</script>
+</body>
+</html>
