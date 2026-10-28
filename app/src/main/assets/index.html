@@ -374,7 +374,6 @@ $("vehicleForm").addEventListener("submit", event => {
 });
 
 function renderVehicles() {
-  <p>Telefon: ${safe(v.phone || "Belirtilmedi")}</p>
   const list = $("vehiclesList");
   if (!list) return;
   list.innerHTML = vehicles.length ? [...vehicles].reverse().map(v => `
@@ -383,6 +382,7 @@ function renderVehicles() {
         <div><span class="plate">${safe(v.plate)}</span>
         <h3 style="margin-top:9px">${safe(v.brand)} ${safe(v.model)}</h3>
         <p>Sahibi: ${safe(v.owner)}</p>
+        <p>Telefon: ${safe(v.phone || "Belirtilmedi")}</p>
         <p>Yıl: ${safe(v.year || "-")} · KM: ${safe(v.km || "-")}</p></div>
       </div>
       <div class="actions">
