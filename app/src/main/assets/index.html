@@ -59,38 +59,49 @@ nav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:grid;grid-template
 <div class="section-title">Araç listesi <button class="btn" onclick="openVehicleForm()">+ Araç ekle</button></div>
 <div id="vehicleFormWrap" class="card" style="display:none;margin-bottom:14px">
 <form id="vehicleForm" class="form">
-<input type="hidden" id="vehicleId">
-<div class="field"><label for="vehicleOwner">Araç sahibi *</label><input id="vehicleOwner" required placeholder="Müşteri adı"></div>
-<div class="form-grid">
-<div class="field"><label for="vehiclePlate">Plaka *</label><input id="vehiclePlate" required placeholder="34 ABC 123"></div>
-<div class="field"><label for="vehicleBrand">Marka *</label><input id="vehicleBrand" required placeholder="Volkswagen"></div>
-<div class="field"><label for="vehicleModel">Model</label><input id="vehicleModel" placeholder="Passat"></div>
-<div class="field"><label for="vehicleYear">Model yılı</label><input id="vehicleYear" type="number" min="1950" max="2100" placeholder="2020"></div>
-</div>
-<div class="field"><label for="vehicleKm">Kilometre</label><input id="vehicleKm" type="number" min="0" placeholder="150000"></div>
-<div class="form-actions"><button class="btn" type="submit">Kaydet</button><button class="btn secondary" type="button" onclick="closeVehicleForm()">İptal</button></div>
-</form></div>
-<div id="vehiclesList" class="list"></div>
-</section>
+  <input type="hidden" id="vehicleId">
 
-<section id="service" class="screen">
-<div class="eyebrow">SERVİS İŞLEMLERİ</div><h2 class="heading">Servis oluştur</h2><p class="sub">Araç ve yapılan işlemleri kaydet.</p>
-<div class="card">
-<form id="serviceForm" class="form">
-<input type="hidden" id="serviceId">
-<div class="field"><label for="servicePlate">Araç plakası *</label><input id="servicePlate" required placeholder="34 ABC 123"></div>
-<div class="field"><label for="serviceCustomer">Müşteri adı</label><input id="serviceCustomer" placeholder="Müşteri adı"></div>
-<div class="field"><label for="serviceDate">Servis tarihi *</label><input id="serviceDate" type="date" required></div>
-<div class="field"><label for="serviceType">Yapılan işlem *</label><input id="serviceType" required placeholder="Yağ değişimi, bakım, onarım..."></div>
-<div class="form-grid">
-<div class="field"><label for="serviceParts">Parça ücreti (₺)</label><input id="serviceParts" type="number" min="0" step="0.01" value="0" oninput="calcTotal()"></div>
-<div class="field"><label for="serviceLabor">İşçilik ücreti (₺)</label><input id="serviceLabor" type="number" min="0" step="0.01" value="0" oninput="calcTotal()"></div>
-</div>
-<div class="field"><label for="serviceStatus">Durum</label><select id="serviceStatus"><option>Bekliyor</option><option>İşlemde</option><option>Tamamlandı</option><option>Teslim edildi</option></select></div>
-<div class="field"><label for="serviceNotes">Notlar</label><textarea id="serviceNotes" rows="3" placeholder="Ek bilgi..."></textarea></div>
-<div class="divider"></div>
-<div>Toplam ücret: <span class="money" id="serviceTotal">₺0</span></div>
-<div class="form-actions"><button class="btn" type="submit">Servisi kaydet</button><button class="btn secondary" type="button" onclick="resetServiceForm()">Temizle</button></div>
+  <div class="field">
+    <label for="vehicleOwner">Araç sahibi *</label>
+    <input id="vehicleOwner" required placeholder="Müşteri adı">
+  </div>
+
+  <div class="field">
+    <label for="vehiclePhone">Müşteri telefon numarası</label>
+    <input id="vehiclePhone" type="tel" inputmode="tel"
+      placeholder="05xx xxx xx xx">
+  </div>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="vehiclePlate">Plaka *</label>
+      <input id="vehiclePlate" required placeholder="34 ABC 123">
+    </div>
+    <div class="field">
+      <label for="vehicleBrand">Marka *</label>
+      <input id="vehicleBrand" required placeholder="Volkswagen">
+    </div>
+    <div class="field">
+      <label for="vehicleModel">Model</label>
+      <input id="vehicleModel" placeholder="Passat">
+    </div>
+    <div class="field">
+      <label for="vehicleYear">Model yılı</label>
+      <input id="vehicleYear" type="number" min="1950"
+        max="2100" placeholder="2020">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="vehicleKm">Kilometre</label>
+    <input id="vehicleKm" type="number" min="0" placeholder="150000">
+  </div>
+
+  <div class="form-actions">
+    <button class="btn" type="submit">Kaydet</button>
+    <button class="btn secondary" type="button"
+      onclick="closeVehicleForm()">İptal</button>
+  </div>
 </form>
 </div>
 </section>
@@ -300,20 +311,33 @@ $("customerForm").addEventListener("submit", event => {
   alert("Müşteri kaydedildi.");
 });
 
+
 function openVehicleForm(id = "") {
   $("vehicleFormWrap").style.display = "block";
+
   const v = vehicles.find(x => x.id === id) || {
-    id: "", owner: "", plate: "", brand: "", model: "", year: "", km: ""
+    id: "",
+    owner: "",
+    phone: "",
+    plate: "",
+    brand: "",
+    model: "",
+    year: "",
+    km: ""
   };
+
   $("vehicleId").value = v.id;
   $("vehicleOwner").value = v.owner;
+  $("vehiclePhone").value = v.phone || "";
   $("vehiclePlate").value = v.plate;
   $("vehicleBrand").value = v.brand;
   $("vehicleModel").value = v.model;
   $("vehicleYear").value = v.year;
   $("vehicleKm").value = v.km;
+
   $("vehicleOwner").focus();
 }
+  
 
 function closeVehicleForm() {
   $("vehicleFormWrap").style.display = "none";
@@ -324,7 +348,7 @@ function closeVehicleForm() {
 $("vehicleForm").addEventListener("submit", event => {
   event.preventDefault();
   const id = $("vehicleId").value || makeId();
-  const v = {
+  const v = {phone: $("vehiclePhone").value.trim(),
     id,
     owner: $("vehicleOwner").value.trim(),
     plate: $("vehiclePlate").value.trim().toLocaleUpperCase("tr-TR"),
@@ -349,6 +373,7 @@ $("vehicleForm").addEventListener("submit", event => {
 });
 
 function renderVehicles() {
+  <p>Telefon: ${safe(v.phone || "Belirtilmedi")}</p>
   const list = $("vehiclesList");
   if (!list) return;
   list.innerHTML = vehicles.length ? [...vehicles].reverse().map(v => `
@@ -362,4 +387,222 @@ function renderVehicles() {
       <div class="actions">
         <button class="btn secondary" onclick="openVehicleForm('${v.id}')">Düzenle</button>
         <button class="btn secondary" onclick="newServiceFor('${safe(v.plate)}','${safe(v.owner)}')">Servis oluştur</button>
-        <button class="btn da
+        <button class="btn danger" onclick="deleteVehicle('${v.id}')">Sil</button>
+      </div>
+    </div>`).join("") : '<div class="empty">Henüz araç eklenmedi.</div>';
+}
+
+function deleteVehicle(id) {
+  if (!confirm("Bu aracı silmek istiyor musun?")) return;
+  vehicles = vehicles.filter(v => v.id !== id);
+  saveData();
+  renderAll();
+}
+
+function newServiceFor(plate, owner) {
+  openScreen("service");
+  resetServiceForm();
+  $("servicePlate").value = plate;
+  $("serviceCustomer").value = owner;
+}
+ function calcTotal() {
+  const parts = Number($("serviceParts").value || 0);
+  const labor = Number($("serviceLabor").value || 0);
+  $("serviceTotal").textContent = money(parts + labor);
+}
+
+function resetServiceForm() {
+  $("serviceForm").reset();
+  $("serviceId").value = "";
+  $("serviceDate").value = new Date().toISOString().slice(0, 10);
+  $("serviceParts").value = "0";
+  $("serviceLabor").value = "0";
+  $("serviceStatus").value = "Bekliyor";
+  calcTotal();
+}
+
+$("serviceForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const id = $("serviceId").value || makeId();
+  const service = {
+    id,
+    plate: $("servicePlate").value.trim().toLocaleUpperCase("tr-TR"),
+    customer: $("serviceCustomer").value.trim(),
+    date: $("serviceDate").value,
+    type: $("serviceType").value.trim(),
+    parts: Number($("serviceParts").value 
+    labor: Number($("serviceLabor").value || 0),
+    status: $("serviceStatus").value,
+    notes: $("serviceNotes").value.trim()
+  };
+
+  service.total = service.parts + service.labor;
+
+  const index = services.findIndex(s => s.id === id);
+  if (index >= 0) services[index] = service;
+  else services.push(service);
+
+  saveData();
+  resetServiceForm();
+  renderAll();
+  alert("Servis kaydedildi.");
+});
+
+function serviceCard(s) {
+  const done = s.status === "Tamamlandı" || s.status === "Teslim edildi";
+  return `
+    <div class="item">
+      <div class="item-top">
+        <div>
+          <span class="plate">${safe(s.plate)}</span>
+          <h3 style="margin-top:9px">${safe(s.type)}</h3>
+          <p>${safe(s.customer || "Müşteri belirtilmedi")} · ${safe(s.date)}</p>
+          <p>Toplam: <b>${money(s.total)}</b></p>
+        </div>
+        <span class="tag ${done ? "done" : "wait"}">${safe(s.status)}</span>
+      </div>
+      ${s.notes ? `<p style="margin-top:10px">${safe(s.notes)}</p>` : ""}
+      <div class="actions">
+        <button class="btn secondary" onclick="editService('${s.id}')">Düzenle</button>
+        <button class="btn secondary" onclick="shareService('${s.id}')">WhatsApp</button>
+        <button class="btn danger" onclick="deleteService('${s.id}')">Sil</button>
+      </div>
+    </div>`;
+}
+
+function renderServices() {
+  const list = $("servicesList");
+  if (!list) return;
+
+  const search = ($("serviceSearch")?.value || "").toLocaleLowerCase("tr-TR");
+  const filtered = [...services].reverse().filter(s =>
+    [s.plate, s.customer, s.type, s.status]
+      .join(" ")
+      .toLocaleLowerCase("tr-TR")
+      .includes(search)
+  );
+
+  list.innerHTML = filtered.length
+    ? filtered.map(serviceCard).join("")
+    : '<div class="empty">Arama kriterlerine uygun servis kaydı bulunamadı.</div>';
+}
+
+function editService(id) {
+  const s = services.find(x => x.id === id);
+  if (!s) return;
+
+  openScreen("service");
+  $("serviceId").value = s.id;
+  $("servicePlate").value = s.plate;
+  $("serviceCustomer").value = s.customer || "";
+  $("serviceDate").value = s.date;
+  $("serviceType").value = s.type;
+  $("serviceParts").value = s.parts || 0;
+  $("serviceLabor").value = s.labor || 0;
+  $("serviceStatus").value = s.status || "Bekliyor";
+  $("serviceNotes").value = s.notes || "";
+  calcTotal();
+}
+
+function deleteService(id) {
+  if (!confirm("Bu servis kaydını silmek istiyor musun?")) return;
+  services = services.filter(s => s.id !== id);
+  saveData();
+  renderAll();
+}
+
+function shareService(id) {
+  const s = services.find(x => x.id === id);
+  if (!s) return;
+
+  const message =
+    "ALMAN OTO BAKIM SERVİSİ\n" +
+    "Plaka: " + s.plate + "\n" +
+    "Müşteri: " + (s.customer || "-") + "\n" +
+    "İşlem: " + s.type + "\n" +
+    "Tarih: " + s.date + "\n" +
+    "Durum: " + s.status + "\n" +
+    "Toplam: " + money(s.total);
+
+  const url = "https://wa.me/?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+
+function backupData() {
+  const data = {
+    vehicles,
+    services,
+    customers,
+    backupDate: new Date().toISOString()
+  };
+
+  const blob = new Blob(
+    [JSON.stringify(data, null, 2)],
+    { type: "application/json" }
+  );
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "alman-oto-yedek.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function restoreData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+
+      if (!Array.isArray(data.vehicles) ||
+          !Array.isArray(data.services)) {
+        throw new Error("Yedek dosyasının biçimi geçersiz.");
+      }
+
+      if (!confirm("Mevcut kayıtlar yedekteki kayıtlarla değiştirilsin mi?")) {
+        event.target.value = "";
+        return;
+      }
+
+      vehicles = data.vehicles;
+      services = data.services;
+      customers = Array.isArray(data.customers) ? data.customers : [];
+
+      saveData();
+      renderAll();
+      alert("Yedek başarıyla yüklendi.");
+    } catch (error) {
+      alert("Yedek yüklenemedi: " + error.message);
+    }
+
+    event.target.value = "";
+  };
+
+  reader.readAsText(file);
+}
+
+function clearAllData() {
+  if (!confirm("Bütün araç, müşteri ve servis kayıtları silinsin mi?")) return;
+  if (!confirm("Bu işlem geri alınamaz. Emin misin?")) return;
+
+  vehicles = [];
+  services = [];
+  customers = [];
+
+  saveData();
+  renderAll();
+  alert("Kayıtlar silindi.");
+}
+
+loadData();
+renderAll();
+resetServiceForm();
+</script>
+</body>
+</html>
