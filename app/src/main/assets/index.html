@@ -348,15 +348,16 @@ function closeVehicleForm() {
 $("vehicleForm").addEventListener("submit", event => {
   event.preventDefault();
   const id = $("vehicleId").value || makeId();
-  const v = {phone: $("vehiclePhone").value.trim(),
-    id,
-    owner: $("vehicleOwner").value.trim(),
-    plate: $("vehiclePlate").value.trim().toLocaleUpperCase("tr-TR"),
-    brand: $("vehicleBrand").value.trim(),
-    model: $("vehicleModel").value.trim(),
-    year: $("vehicleYear").value,
-    km: $("vehicleKm").value
-  };
+  const v = {
+  id: id,
+  owner: $("vehicleOwner").value.trim(),
+  phone: $("vehiclePhone").value.trim(),
+  plate: $("vehiclePlate").value.trim().toLocaleUpperCase("tr-TR"),
+  brand: $("vehicleBrand").value.trim(),
+  model: $("vehicleModel").value.trim(),
+  year: $("vehicleYear").value,
+  km: $("vehicleKm").value
+};
 
   const existing = vehicles.findIndex(x => x.id === id);
   if (existing >= 0) vehicles[existing] = v;
