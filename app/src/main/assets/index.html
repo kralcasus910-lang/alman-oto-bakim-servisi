@@ -399,14 +399,14 @@ $("vehicleForm").addEventListener("submit", event => {
   saveData();
   renderAll();
 }
-
 function newServiceFor(plate, owner) {
   openScreen("service");
   resetServiceForm();
   $("servicePlate").value = plate;
   $("serviceCustomer").value = owner;
 }
- function calcTotal() {
+
+function calcTotal() {
   const parts = Number($("serviceParts").value || 0);
   const labor = Number($("serviceLabor").value || 0);
   $("serviceTotal").textContent = money(parts + labor);
@@ -426,8 +426,9 @@ $("serviceForm").addEventListener("submit", event => {
   event.preventDefault();
 
   const id = $("serviceId").value || makeId();
+
   const service = {
-    id,
+    id: id,
     plate: $("servicePlate").value.trim().toLocaleUpperCase("tr-TR"),
     customer: $("serviceCustomer").value.trim(),
     date: $("serviceDate").value,
@@ -441,14 +442,19 @@ $("serviceForm").addEventListener("submit", event => {
   service.total = service.parts + service.labor;
 
   const index = services.findIndex(s => s.id === id);
-  if (index >= 0) services[index] = service;
-  else services.push(service);
+
+  if (index >= 0) {
+    services[index] = service;
+  } else {
+    services.push(service);
+  }
 
   saveData();
   resetServiceForm();
   renderAll();
   alert("Servis kaydedildi.");
 });
+
 
 function serviceCard(s) {
   const done = s.status === "Tamamlandı" || s.status === "Teslim edildi";
@@ -512,6 +518,27 @@ function deleteService(id) {
   saveData();
   renderAll();
 }
+Screen("service");
+  resetServiceForm();
+  $("servicePlate").value = plate;
+  $("serviceCustomer").value = owner;
+}
+ function calcTotal() {
+  const parts = Number($("serviceParts").value || 0);
+  const labor = Number($("serviceLabor").value || 0);
+  $("serviceTotal").textContent = money(parts + labor);
+}
+
+function resetServiceForm() {
+  $("serviceForm").reset();
+  $("serviceId").value = "";
+  $("serviceDate").value = new Date().toISOString().slice(0, 10);
+  $("serviceParts").value = "0";
+  $("serviceLabor").value = "0";
+  $("serviceStatus").value = "Bekliyor";
+  calcTotal();
+}
+
 
 function shareService(id) {
   const s = services.find(x => x.id === id);
