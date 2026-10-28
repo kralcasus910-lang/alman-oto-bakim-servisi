@@ -165,8 +165,8 @@ function saveData() {
     localStorage.setItem("servisler", JSON.stringify(services));
     localStorage.setItem("musteriler", JSON.stringify(customers));
     if (window.AndroidDepo) {
-      AndroidDepo.kaydetVeri("araclar", JSON.stringify(vehicles));
-      AndroidDepo.kaydetVeri("servisler", JSON.stringify(services));
+      AndroidDepo.yaz("araclar", JSON.stringify(vehicles));
+      AndroidDepo.yaz("servisler", JSON.stringify(services));
     }
   } catch (e) {
     alert("Kayıt sırasında sorun oluştu: " + e.message);
