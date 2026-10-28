@@ -373,7 +373,7 @@ $("vehicleForm").addEventListener("submit", event => {
   alert("Araç kaydedildi.");
 });
 
-function renderVehicles() {
+  function renderVehicles() {
   const list = $("vehiclesList");
   if (!list) return;
   list.innerHTML = vehicles.length ? [...vehicles].reverse().map(v => `
@@ -393,7 +393,7 @@ function renderVehicles() {
     </div>`).join("") : '<div class="empty">Henüz araç eklenmedi.</div>';
 }
 
-function deleteVehicle(id) {
+ function deleteVehicle(id) {
   if (!confirm("Bu aracı silmek istiyor musun?")) return;
   vehicles = vehicles.filter(v => v.id !== id);
   saveData();
