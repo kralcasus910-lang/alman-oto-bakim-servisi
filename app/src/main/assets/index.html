@@ -59,38 +59,49 @@ nav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:grid;grid-template
 <div class="section-title">Araç listesi <button class="btn" onclick="openVehicleForm()">+ Araç ekle</button></div>
 <div id="vehicleFormWrap" class="card" style="display:none;margin-bottom:14px">
 <form id="vehicleForm" class="form">
-<input type="hidden" id="vehicleId">
-<div class="field"><label for="vehicleOwner">Araç sahibi *</label><input id="vehicleOwner" required placeholder="Müşteri adı"></div>
-<div class="form-grid">
-<div class="field"><label for="vehiclePlate">Plaka *</label><input id="vehiclePlate" required placeholder="34 ABC 123"></div>
-<div class="field"><label for="vehicleBrand">Marka *</label><input id="vehicleBrand" required placeholder="Volkswagen"></div>
-<div class="field"><label for="vehicleModel">Model</label><input id="vehicleModel" placeholder="Passat"></div>
-<div class="field"><label for="vehicleYear">Model yılı</label><input id="vehicleYear" type="number" min="1950" max="2100" placeholder="2020"></div>
-</div>
-<div class="field"><label for="vehicleKm">Kilometre</label><input id="vehicleKm" type="number" min="0" placeholder="150000"></div>
-<div class="form-actions"><button class="btn" type="submit">Kaydet</button><button class="btn secondary" type="button" onclick="closeVehicleForm()">İptal</button></div>
-</form></div>
-<div id="vehiclesList" class="list"></div>
-</section>
+  <input type="hidden" id="vehicleId">
 
-<section id="service" class="screen">
-<div class="eyebrow">SERVİS İŞLEMLERİ</div><h2 class="heading">Servis oluştur</h2><p class="sub">Araç ve yapılan işlemleri kaydet.</p>
-<div class="card">
-<form id="serviceForm" class="form">
-<input type="hidden" id="serviceId">
-<div class="field"><label for="servicePlate">Araç plakası *</label><input id="servicePlate" required placeholder="34 ABC 123"></div>
-<div class="field"><label for="serviceCustomer">Müşteri adı</label><input id="serviceCustomer" placeholder="Müşteri adı"></div>
-<div class="field"><label for="serviceDate">Servis tarihi *</label><input id="serviceDate" type="date" required></div>
-<div class="field"><label for="serviceType">Yapılan işlem *</label><input id="serviceType" required placeholder="Yağ değişimi, bakım, onarım..."></div>
-<div class="form-grid">
-<div class="field"><label for="serviceParts">Parça ücreti (₺)</label><input id="serviceParts" type="number" min="0" step="0.01" value="0" oninput="calcTotal()"></div>
-<div class="field"><label for="serviceLabor">İşçilik ücreti (₺)</label><input id="serviceLabor" type="number" min="0" step="0.01" value="0" oninput="calcTotal()"></div>
-</div>
-<div class="field"><label for="serviceStatus">Durum</label><select id="serviceStatus"><option>Bekliyor</option><option>İşlemde</option><option>Tamamlandı</option><option>Teslim edildi</option></select></div>
-<div class="field"><label for="serviceNotes">Notlar</label><textarea id="serviceNotes" rows="3" placeholder="Ek bilgi..."></textarea></div>
-<div class="divider"></div>
-<div>Toplam ücret: <span class="money" id="serviceTotal">₺0</span></div>
-<div class="form-actions"><button class="btn" type="submit">Servisi kaydet</button><button class="btn secondary" type="button" onclick="resetServiceForm()">Temizle</button></div>
+  <div class="field">
+    <label for="vehicleOwner">Araç sahibi *</label>
+    <input id="vehicleOwner" required placeholder="Müşteri adı">
+  </div>
+
+  <div class="field">
+    <label for="vehiclePhone">Müşteri telefon numarası</label>
+    <input id="vehiclePhone" type="tel" inputmode="tel"
+      placeholder="05xx xxx xx xx">
+  </div>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="vehiclePlate">Plaka *</label>
+      <input id="vehiclePlate" required placeholder="34 ABC 123">
+    </div>
+    <div class="field">
+      <label for="vehicleBrand">Marka *</label>
+      <input id="vehicleBrand" required placeholder="Volkswagen">
+    </div>
+    <div class="field">
+      <label for="vehicleModel">Model</label>
+      <input id="vehicleModel" placeholder="Passat">
+    </div>
+    <div class="field">
+      <label for="vehicleYear">Model yılı</label>
+      <input id="vehicleYear" type="number" min="1950"
+        max="2100" placeholder="2020">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="vehicleKm">Kilometre</label>
+    <input id="vehicleKm" type="number" min="0" placeholder="150000">
+  </div>
+
+  <div class="form-actions">
+    <button class="btn" type="submit">Kaydet</button>
+    <button class="btn secondary" type="button"
+      onclick="closeVehicleForm()">İptal</button>
+  </div>
 </form>
 </div>
 </section>
@@ -300,20 +311,33 @@ $("customerForm").addEventListener("submit", event => {
   alert("Müşteri kaydedildi.");
 });
 
+
 function openVehicleForm(id = "") {
   $("vehicleFormWrap").style.display = "block";
+
   const v = vehicles.find(x => x.id === id) || {
-    id: "", owner: "", plate: "", brand: "", model: "", year: "", km: ""
+    id: "",
+    owner: "",
+    phone: "",
+    plate: "",
+    brand: "",
+    model: "",
+    year: "",
+    km: ""
   };
+
   $("vehicleId").value = v.id;
   $("vehicleOwner").value = v.owner;
+  $("vehiclePhone").value = v.phone || "";
   $("vehiclePlate").value = v.plate;
   $("vehicleBrand").value = v.brand;
   $("vehicleModel").value = v.model;
   $("vehicleYear").value = v.year;
   $("vehicleKm").value = v.km;
+
   $("vehicleOwner").focus();
 }
+  
 
 function closeVehicleForm() {
   $("vehicleFormWrap").style.display = "none";
@@ -324,7 +348,7 @@ function closeVehicleForm() {
 $("vehicleForm").addEventListener("submit", event => {
   event.preventDefault();
   const id = $("vehicleId").value || makeId();
-  const v = {
+  const v = {phone: $("vehiclePhone").value.trim(),
     id,
     owner: $("vehicleOwner").value.trim(),
     plate: $("vehiclePlate").value.trim().toLocaleUpperCase("tr-TR"),
@@ -349,6 +373,7 @@ $("vehicleForm").addEventListener("submit", event => {
 });
 
 function renderVehicles() {
+  <p>Telefon: ${safe(v.phone || "Belirtilmedi")}</p>
   const list = $("vehiclesList");
   if (!list) return;
   list.innerHTML = vehicles.length ? [...vehicles].reverse().map(v => `
